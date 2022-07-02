@@ -49,7 +49,7 @@ class NewTransaction extends StatelessWidget {
               child: Text('Add Transaction'),
               textColor: Colors.purple,
               onPressed: submitData,
-            )
+            ),
           ],
         ),
       ),
