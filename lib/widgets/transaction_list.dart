@@ -7,7 +7,6 @@ class TransactionList extends StatelessWidget {
 
   TransactionList(this.transactions);
 
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,18 +23,19 @@ class TransactionList extends StatelessWidget {
                   ),
                   decoration: BoxDecoration(
                     border: Border.all(
-                      color: Colors.purple,
+                      color: Theme.of(context).primaryColor,
                       width: 2,
                     ),
                   ),
                   padding: EdgeInsets.all(10),
                   child: Text(
-                    '₹ ' + transactions[index].amount.toStringAsFixed(2), //rupee sign
+                    '₹ ' + transactions[index].amount.toStringAsFixed(2),
+                    //rupee sign
                     // '\$${tx.amount}', this is called string interpolation
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
-                      color: Colors.purple,
+                      color: Theme.of(context).primaryColor,
                     ),
                   ),
                 ),
@@ -44,13 +44,11 @@ class TransactionList extends StatelessWidget {
                   children: <Widget>[
                     Text(
                       transactions[index].title,
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: Theme.of(context).textTheme.titleSmall,
                     ),
                     Text(
-                      DateFormat('d/m/yy, EEE').format(transactions[index].date),
+                      DateFormat('d/m/yy, EEE')
+                          .format(transactions[index].date),
                       style: TextStyle(
                         color: Colors.grey,
                       ),
@@ -62,7 +60,7 @@ class TransactionList extends StatelessWidget {
           );
         },
         itemCount: transactions.length,
-        ),
+      ),
     );
   }
 }
